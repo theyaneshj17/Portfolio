@@ -51,7 +51,7 @@ const Education: React.FC = () => {
       description: 'Endorsed for Final Year Project on "MACHINE LEARNING BASED MOBILE BANKING AUTHENTICATION"',
       icon: Award,
       color: 'from-yellow-500 to-orange-500',
-      pdfLink: '/AAIC_Poster1.pdf'
+      pdfLink: './AAIC_Poster1.pdf'
     },
     {
       title: 'AAIC 2025 Fellowship Recipient',
@@ -60,7 +60,7 @@ const Education: React.FC = () => {
       description: 'Received fellowship for research on Alzheimer\'s disease subtype discovery using machine learning and neuroimaging.',
       icon: TrendingUp,
       color: 'from-green-500 to-emerald-500',
-      pdfLink: '/AAIC_Poster1.pdf'
+      pdfLink: './AAIC_Poster1.pdf'
     },
     {
       title: 'First Author Publication',
@@ -69,7 +69,7 @@ const Education: React.FC = () => {
       description: 'First author on research paper presenting novel ML approach for Alzheimer\'s subtype classification achieving 92% accuracy.',
       icon: Brain,
       color: 'from-purple-500 to-pink-500',
-      pdfLink: '/AAIC_Poster1.pdf'
+      pdfLink: './AAIC_Poster1.pdf'
     },
     {
       title: 'MSLD 2025 Poster Presentation',
@@ -78,7 +78,7 @@ const Education: React.FC = () => {
       description: 'Presented research on biomedical knowledge graphs and Graph-RAG systems improving multi-hop QA accuracy by 25%.',
       icon: Brain,
       color: 'from-indigo-500 to-purple-500',
-      pdfLink: '/MSLD_2025_Poster.pdf'
+      pdfLink: './MSLD_2025_Poster.pdf'
     },
     {
       title: 'Ace Awards Winner',

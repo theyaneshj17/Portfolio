@@ -119,7 +119,7 @@ const Hero: React.FC = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <motion.a
-              href="/Theyaneshwaran_Jayaprakash_Resume.pdf"
+              href="./Theyaneshwaran_Jayaprakash_Resume.pdf"
               download="Theyaneshwaran_Jayaprakash_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"

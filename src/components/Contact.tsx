@@ -307,7 +307,7 @@ const Contact: React.FC = () => {
                   Get my detailed resume with all my experience and skills
                 </p>
                 <motion.a
-                  href="/Theyaneshwaran_Jayaprakash_Resume.pdf"
+                  href="./Theyaneshwaran_Jayaprakash_Resume.pdf"
                   download="Theyaneshwaran_Jayaprakash_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
