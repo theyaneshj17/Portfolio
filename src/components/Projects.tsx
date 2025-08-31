@@ -63,54 +63,7 @@ const Projects: React.FC = () => {
       ],
       impact: '90%+ cache hit rates, scalable video content analysis'
     },
-    {
-      id: 4,
-      title: 'Biomedical Knowledge Graph & Graph-RAG',
-      description: 'Ontology-enriched biomedical Knowledge Graph in Neo4j using two-stage LLM-based triple extraction pipeline, improving multi-hop QA accuracy by 25% via hybrid Graph-RAG system.',
-      image: './MSLD.png',
-      category: 'research',
-      technologies: ['Neo4j', 'FAISS', 'Cosine Similarity', 'Flask', 'Knowledge Graphs', 'Graph-RAG'],
-      github: 'https://github.com/theyaneshj17/biomedical-kg',
-      features: [
-        'Biomedical Knowledge Graph',
-        'LLM-based triple extraction',
-        'Hybrid Graph-RAG system',
-        'Multi-hop QA improvement'
-      ],
-      impact: '25% improvement in multi-hop QA accuracy (Poster, MSLD 2025)'
-    },
-    {
-      id: 5,
-      title: 'Alzheimer\'s Subtype Discovery System',
-      description: 'Self-supervised autoencoder guided by Gaussian Mixture Model clustering for Alzheimer\'s disease subtype discovery, achieving 92% accuracy in subtype classification.',
-      image: './AAIC.png',
-      category: 'research',
-      technologies: ['PyTorch', 'Gaussian Mixture Models', 'Autoencoders', 'Neuroimaging', 'Statistical Analysis'],
-      github: 'https://github.com/theyaneshj17/alzheimers-discovery',
-      features: [
-        'Self-supervised autoencoder',
-        'GMM clustering guidance',
-        'Neuroimaging analysis',
-        'Statistical validation'
-      ],
-      impact: '92% accuracy in Alzheimer\'s subtype discovery (First Author, AAIC 2025)'
-    },
-    {
-      id: 6,
-      title: 'Healthcare Data Pipeline & API Optimization',
-      description: 'FHIR streaming pipeline on Databricks with Delta Lake and PySpark, processing 5,000+ records/min from Azure Event Hubs, with API migration from Azure VMs to Container Instances.',
-      image: './Microservices.png',
-      category: 'data',
-      technologies: ['Azure Synapse', 'Databricks', 'Delta Lake', 'PySpark', 'Azure Event Hubs', 'C#'],
-      github: 'https://github.com/theyaneshj17/healthcare-pipeline',
-      features: [
-        'FHIR streaming pipeline',
-        '5,000+ records/min processing',
-        'Delta Lake integration',
-        'API optimization'
-      ],
-      impact: '60% cost reduction ($30K annually), 4x faster execution'
-    }
+
   ];
 
   const filteredProjects = selectedCategory === 'all' 

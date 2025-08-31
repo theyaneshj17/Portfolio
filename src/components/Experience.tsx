@@ -34,7 +34,7 @@ const Experience: React.FC = () => {
       location: 'Indiana, USA',
       period: 'September 2024 - Present',
       description: 'Conducting cutting-edge research in machine learning and neuroimaging, focusing on Alzheimer\'s disease subtype discovery and validation.',
-      technologies: ['PyTorch', 'Gaussian Mixture Models', 'Neuroimaging', 'Statistical Analysis', 'Bayesian MCMC'],
+      technologies: ['PyTorch', 'Gaussian Mixture Models', 'Statistical Analysis', 'Bayesian MCMC'],
       icon: Brain,
       color: 'from-purple-500 to-pink-500',
       achievements: [

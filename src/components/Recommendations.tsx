@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-import { Quote, Star, User, Linkedin, ExternalLink } from 'lucide-react';
+import { Quote, Star, Linkedin, ExternalLink } from 'lucide-react';
 
 const Recommendations: React.FC = () => {
   const recommendations = [
@@ -37,16 +37,7 @@ const Recommendations: React.FC = () => {
     }
   ];
 
-  const endorsements = [
-    { skill: 'Machine Learning', count: 47, endorsers: ['Dr. Sarah J.', 'Michael C.', 'Dr. Emily R.', 'Alex T.'] },
-    { skill: 'Python', count: 52, endorsers: ['Dr. Sarah J.', 'Michael C.', 'Dr. Emily R.', 'Alex T.', 'Dr. Priya P.'] },
-    { skill: 'Data Engineering', count: 43, endorsers: ['Michael C.', 'Alex T.', 'David K.', 'Dr. Priya P.'] },
-    { skill: 'Deep Learning', count: 38, endorsers: ['Dr. Sarah J.', 'Dr. Emily R.', 'Dr. Priya P.', 'Alex T.'] },
-    { skill: 'AWS', count: 35, endorsers: ['Michael C.', 'David K.', 'Alex T.', 'Dr. Sarah J.'] },
-    { skill: 'PyTorch', count: 41, endorsers: ['Dr. Sarah J.', 'Dr. Emily R.', 'Dr. Priya P.', 'Alex T.', 'Michael C.'] },
-    { skill: 'Neo4j', count: 28, endorsers: ['Dr. Priya P.', 'Alex T.', 'Dr. Emily R.'] },
-    { skill: 'Apache Spark', count: 32, endorsers: ['Michael C.', 'David K.', 'Alex T.'] }
-  ];
+
 
   return (
     <section id="recommendations" className="relative py-20 overflow-hidden">
@@ -164,66 +155,7 @@ const Recommendations: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Skill Endorsements */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/30 dark:to-emerald-900/30 px-6 py-3 rounded-full">
-              <User className="w-6 h-6 text-green-600 dark:text-green-400" />
-              <h3 className="text-2xl font-bold text-green-800 dark:text-green-200">Skill Endorsements</h3>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {endorsements.map((endorsement, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -5, scale: 1.02 }}
-                className="group p-6 bg-white dark:bg-dark-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200/50 dark:border-dark-700/50 text-center"
-              >
-                <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-2">
-                  {endorsement.skill}
-                </h4>
-                <div className="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-3">
-                  {endorsement.count}
-                </div>
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-                  endorsements
-                </p>
-                
-                {/* Top Endorsers */}
-                <div className="space-y-2">
-                  <p className="text-xs text-gray-500 dark:text-gray-500 uppercase tracking-wide">
-                    Top Endorsers
-                  </p>
-                  <div className="flex flex-wrap justify-center gap-1">
-                    {endorsement.endorsers.slice(0, 3).map((endorser, i) => (
-                      <span
-                        key={i}
-                        className="px-2 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-xs"
-                      >
-                        {endorser}
-                      </span>
-                    ))}
-                    {endorsement.endorsers.length > 3 && (
-                      <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full text-xs">
-                        +{endorsement.endorsers.length - 3}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+        
 
         {/* Call to Action */}
         <motion.div
