@@ -6,34 +6,34 @@ import { Quote, Star, User, Linkedin, ExternalLink } from 'lucide-react';
 const Recommendations: React.FC = () => {
   const recommendations = [
     {
-      name: 'Dr. Emily Rodriguez',
-      title: 'Principal Research Scientist',
-      company: 'IU School of Medicine',
-      avatar: './images/profile-photo.png',
-      text: 'Theyanesh has shown remarkable creativity and technical rigor in our research collaboration. His work on Alzheimer\'s subtype discovery using novel ML approaches has the potential to significantly impact our understanding of neurodegenerative diseases. His expertise in PyTorch, Gaussian Mixture Models, and neuroimaging analysis is exceptional.',
-      rating: 5,
-      linkedin: 'https://linkedin.com/in/theyaneshj17',
-      relationship: 'Research Supervisor'
-    },
-    {
-      name: 'Michael Chen',
-      title: 'Senior Data Engineering Manager',
+      name: 'Samson Stubbs',
+      title: 'Director of Data Engineering',
       company: 'UnitedHealth Group',
       avatar: './images/profile-photo.png',
-      text: 'Theyanesh demonstrated exceptional technical skills and leadership during our data migration project. His expertise in Azure Synapse, Databricks, and data pipeline optimization was invaluable. He consistently exceeded expectations, achieving 60% cost reduction and 4x faster execution while mentoring junior team members effectively.',
+      text: 'I am writing to wholeheartedly recommend Theyanesh for any software engineering or data science position for which he might apply. In my role as the Director of Data Engineering, I had the pleasure of working closely with him for the past three years. During this time, he has not only demonstrated exceptional technical prowess but has also established himself as an invaluable asset to our team.',
       rating: 5,
-      linkedin: 'https://linkedin.com/in/theyaneshj17',
+      linkedin: 'https://linkedin.com/in/samson-stubbs-0b12ba5b/',
+      relationship: 'Former Director'
+    },
+    {
+      name: 'Saurabh Srivastava',
+      title: 'Senior Software Engineer Manager',
+      company: 'UnitedHealth Group',
+      avatar: './images/profile-photo.png',
+      text: 'I had the pleasure of working with Theyaneshwaran on an enterprise analytical platform. Despite joining as a fresher, Theyaneshwaran quickly mastered the intricacies of the product and underlying technologies. His ability to learn swiftly and his enthusiasm for tackling complex problems have made him an invaluable team player.',
+      rating: 5,
+      linkedin: 'https://linkedin.com/in/theyaneshj17/details/recommendations/?detailScreenTabIndex=0',
       relationship: 'Former Manager'
     },
     {
-      name: 'Alex Thompson',
-      title: 'Senior AI Engineer',
-      company: 'FocusKPI, Inc',
+      name: 'Kalyan Kumar',
+      title: 'Technical Lead',
+      company: 'UnitedHealth Group',
       avatar: './images/profile-photo.png',
-      text: 'Working alongside Theyanesh on our MCP client-server system has been incredible. His ability to architect scalable solutions and integrate complex AI components is outstanding. He brings both technical excellence and innovative thinking to every project, consistently delivering high-quality results.',
+      text: 'Theyanesh demonstrates exceptional intelligence, meticulousness, and reliability as a developer. Unlike many others who hastily complete tasks, Theyanesh takes the time to ask relevant questions, ensuring that the work aligns precisely with the requirements. His strong work ethic allows him to take ownership of tasks and see them through to completion.',
       rating: 5,
-      linkedin: 'https://linkedin.com/in/theyaneshj17',
-      relationship: 'Current Colleague'
+      linkedin: 'https://linkedin.com/in/kalyan-kumar-281020179/',
+      relationship: 'Technical Lead'
     }
   ];
 

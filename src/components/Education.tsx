@@ -44,61 +44,61 @@ const Education: React.FC = () => {
 
   const awards = [
     {
-      title: 'AAIC 2025 Fellowship Recipient',
-      organization: 'Alzheimer\'s Association International Conference',
-      year: '2025',
-      description: 'Received fellowship for research on Alzheimer\'s disease subtype discovery using machine learning and neuroimaging.',
-      icon: TrendingUp,
-      color: 'from-green-500 to-emerald-500',
+      title: 'AIMO Award Endowment Award',
+      organization: 'All India Manufacturers Organisation Industrial Research and Development Trust',
+      year: '2023',
+      description: 'Final year project on machine learning based mobile banking authentication. Issued by Anna University, College of Engineering, Guindy.',
+      icon: Award,
+      color: 'from-yellow-500 to-orange-500',
       pdfLink: './AAIC_Poster1.pdf'
     },
     {
-      title: 'First Author Publication',
-      organization: 'AAIC 2025 Conference',
-      year: '2025',
-      description: 'First author on research paper presenting novel ML approach for Alzheimer\'s subtype classification achieving 92% accuracy.',
-      icon: Brain,
-      color: 'from-purple-500 to-pink-500',
-      pdfLink: './AAIC_Poster1.pdf'
+      title: 'Ace Award Winner',
+      organization: 'UnitedHealth Group',
+      year: '2021',
+      description: 'Outstanding performance and contribution in professional role.',
+      icon: Award,
+      color: 'from-blue-500 to-cyan-500',
+      pdfLink: './Awards/Aceaward2021.pdf'
     },
     {
-      title: 'MSLD 2025 Poster Presentation',
-      organization: 'Machine Learning in Drug Discovery Conference',
-      year: '2025',
-      description: 'Presented research on biomedical knowledge graphs and Graph-RAG systems improving multi-hop QA accuracy by 25%.',
-      icon: Brain,
-      color: 'from-indigo-500 to-purple-500',
-      pdfLink: './MSLD_2025_Poster.pdf'
+      title: 'Spot Award',
+      organization: 'UnitedHealth Group',
+      year: '2021',
+      description: 'Exceptional work and innovation recognition.',
+      icon: Award,
+      color: 'from-emerald-500 to-teal-500',
+      pdfLink: './Awards/SpotAward_2021.pdf'
     }
   ];
 
   const certifications = [
     {
-      title: 'AWS Certified Solutions Architect',
-      organization: 'Amazon Web Services',
-      year: '2024',
-      description: 'Demonstrates expertise in designing distributed systems on AWS.',
-      icon: ExternalLink,
-      color: 'from-orange-500 to-red-500',
-      link: 'https://aws.amazon.com/certification/'
-    },
-    {
-      title: 'Google Cloud Professional Data Engineer',
-      organization: 'Google Cloud',
-      year: '2024',
-      description: 'Certified in designing and building data processing systems on Google Cloud.',
-      icon: ExternalLink,
-      color: 'from-blue-500 to-indigo-500',
-      link: 'https://cloud.google.com/certification/data-engineer'
-    },
-    {
-      title: 'Microsoft Azure Data Engineer Associate',
+      title: 'Microsoft Azure Data Engineer Associate (DP-100)',
       organization: 'Microsoft',
       year: '2023',
       description: 'Certified in implementing and managing data solutions on Azure.',
       icon: ExternalLink,
       color: 'from-blue-600 to-blue-700',
-      link: 'https://learn.microsoft.com/certifications/azure-data-engineer/'
+      pdfLink: './Certifications/DP100.pdf'
+    },
+    {
+      title: 'Microsoft Azure Fundamentals (AZ-900)',
+      organization: 'Microsoft',
+      year: '2023',
+      description: 'Demonstrates foundational knowledge of cloud services and Azure.',
+      icon: ExternalLink,
+      color: 'from-blue-500 to-indigo-500',
+      pdfLink: './Certifications/AZ900.pdf'
+    },
+    {
+      title: 'Microsoft Azure Data Fundamentals (DP-900)',
+      organization: 'Microsoft',
+      year: '2023',
+      description: 'Certified in fundamental data concepts and Azure data services.',
+      icon: ExternalLink,
+      color: 'from-green-500 to-emerald-500',
+      pdfLink: './Certifications/DP900.pdf'
     }
   ];
 
@@ -139,8 +139,8 @@ const Education: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto"
           >
-            My academic journey with key courses, final year project recognition, and professional achievements 
-            that have shaped my expertise in artificial intelligence, machine learning, and data engineering.
+                         My academic journey with key courses and professional achievements 
+             that have shaped my expertise in artificial intelligence, machine learning, and data engineering.
           </motion.p>
         </motion.div>
 
@@ -321,19 +321,19 @@ const Education: React.FC = () => {
                 <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
                   {cert.description}
                 </p>
-                {cert.link && (
-                  <motion.a
-                    href={cert.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center space-x-2 text-sm text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors duration-300"
-                  >
-                    <span>View Details</span>
-                    <ExternalLink className="w-4 h-4" />
-                  </motion.a>
-                )}
+                                 {cert.pdfLink && (
+                   <motion.a
+                     href={cert.pdfLink}
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     whileHover={{ scale: 1.05 }}
+                     whileTap={{ scale: 0.95 }}
+                     className="inline-flex items-center space-x-2 text-sm text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors duration-300"
+                   >
+                     <span>View PDF</span>
+                     <ExternalLink className="w-4 h-4" />
+                   </motion.a>
+                 )}
               </motion.div>
             ))}
           </div>
