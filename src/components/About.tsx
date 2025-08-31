@@ -141,7 +141,7 @@ const About: React.FC = () => {
               >
                 {/* Profile Photo - Updated to match uploaded PNG */}
                 <img 
-                  src="/images/profile-photo.png" 
+                  src="./images/profile-photo.png" 
                   alt="Professional headshot"
                   className="w-full h-full object-cover"
                 />

@@ -43,8 +43,8 @@ const Experience: React.FC = () => {
         'Employed ANOVA, hypothesis testing, and Bayesian MCMC inference to quantify statistical significance'
       ],
       poster: {
-        pdf: '/AAIC_Poster1.pdf',
-        image: '/AAIC.png',
+        pdf: './AAIC_Poster1.pdf',
+        image: './AAIC.png',
         link: 'https://epostersonline.com/aaic2025/poster/102531',
         conference: 'AAIC 2025 & AIC 2025',
         type: 'First Author Publication',
@@ -66,8 +66,8 @@ const Experience: React.FC = () => {
         'Improved multi-hop QA accuracy by 25% via hybrid Graph-RAG system integrating symbolic retrieval and semantic ranking'
       ],
       poster: {
-        pdf: '/MSLD_2025_Poster.pdf',
-        image: '/MSLD.png',
+        pdf: './MSLD_2025_Poster.pdf',
+        image: './MSLD.png',
         link: 'https://msld.ai/',
         conference: 'MSLD 2025',
         type: 'Poster Presentation',
