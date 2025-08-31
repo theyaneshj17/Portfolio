@@ -31,28 +31,18 @@ const Education: React.FC = () => {
       gpa: '9.26/10.0',
       icon: Database,
       color: 'from-blue-500 to-cyan-500',
-      courses: [
-        'Operating Systems',
-        'Computer System Architecture',
-        'Digital Signal Processing',
-        'Image Processing',
-        'Data Structures and Object Oriented Programming',
-        'Cryptography and Network Security'
-      ],
-      finalYearProject: 'MACHINE LEARNING BASED MOBILE BANKING AUTHENTICATION endorsed with AIMO'
+             courses: [
+         'Operating Systems',
+         'Computer System Architecture',
+         'Digital Signal Processing',
+         'Image Processing',
+         'Data Structures and Object Oriented Programming',
+         'Cryptography and Network Security'
+       ]
     }
   ];
 
   const awards = [
-    {
-      title: 'AIMO Award Endowment Award',
-      organization: 'All India Manufacturers Organisation Industrial Research and Development Trust',
-      year: '2020',
-      description: 'Endorsed for Final Year Project on "MACHINE LEARNING BASED MOBILE BANKING AUTHENTICATION"',
-      icon: Award,
-      color: 'from-yellow-500 to-orange-500',
-      pdfLink: './AAIC_Poster1.pdf'
-    },
     {
       title: 'AAIC 2025 Fellowship Recipient',
       organization: 'Alzheimer\'s Association International Conference',
@@ -79,22 +69,6 @@ const Education: React.FC = () => {
       icon: Brain,
       color: 'from-indigo-500 to-purple-500',
       pdfLink: './MSLD_2025_Poster.pdf'
-    },
-    {
-      title: 'Ace Awards Winner',
-      organization: 'Professional Recognition',
-      year: '2023',
-      description: 'Outstanding performance and contribution in professional role.',
-      icon: Award,
-      color: 'from-blue-500 to-cyan-500'
-    },
-    {
-      title: 'Spot Awards',
-      organization: 'Professional Recognition',
-      year: '2023',
-      description: 'Multiple spot awards for exceptional work and innovation.',
-      icon: Award,
-      color: 'from-emerald-500 to-teal-500'
     }
   ];
 
@@ -229,39 +203,26 @@ const Education: React.FC = () => {
                   {edu.description}
                 </p>
 
-                <div>
-                  <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 uppercase tracking-wide">
-                    Key Courses
-                  </h4>
-                  <ul className="space-y-2">
-                    {edu.courses.map((course, courseIndex) => (
-                      <motion.li
-                        key={courseIndex}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.3, delay: courseIndex * 0.1 }}
-                        className="flex items-start space-x-3 text-gray-600 dark:text-gray-400"
-                      >
-                        <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-sm leading-relaxed">{course}</span>
-                      </motion.li>
-                    ))}
-                  </ul>
-                </div>
-
-                {edu.finalYearProject && (
-                  <div className="mt-6 pt-4 border-t border-gray-200 dark:border-dark-700">
-                    <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 uppercase tracking-wide">
-                      Final Year Project
-                    </h4>
-                    <div className="bg-gradient-to-r from-primary-50 to-neural-50 dark:from-primary-900/30 dark:to-neural-900/30 p-4 rounded-xl border border-primary-200/50 dark:border-primary-700/50">
-                      <p className="text-sm text-primary-700 dark:text-primary-300 font-medium">
-                        {edu.finalYearProject}
-                      </p>
-                    </div>
-                  </div>
-                )}
+                                 <div>
+                   <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 uppercase tracking-wide">
+                     Key Courses
+                   </h4>
+                   <div className="grid grid-cols-2 gap-2">
+                     {edu.courses.map((course, courseIndex) => (
+                       <motion.div
+                         key={courseIndex}
+                         initial={{ opacity: 0, scale: 0.9 }}
+                         whileInView={{ opacity: 1, scale: 1 }}
+                         viewport={{ once: true }}
+                         transition={{ duration: 0.3, delay: courseIndex * 0.1 }}
+                         className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800 px-3 py-2 rounded-lg"
+                       >
+                         <div className="w-2 h-2 bg-primary-500 rounded-full flex-shrink-0"></div>
+                         <span className="text-sm font-medium">{course}</span>
+                       </motion.div>
+                     ))}
+                   </div>
+                 </div>
               </motion.div>
             ))}
           </div>

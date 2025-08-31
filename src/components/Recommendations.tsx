@@ -6,64 +6,34 @@ import { Quote, Star, User, Linkedin, ExternalLink } from 'lucide-react';
 const Recommendations: React.FC = () => {
   const recommendations = [
     {
-      name: 'Dr. Sarah Johnson',
-      title: 'Senior AI Research Scientist',
-      company: 'TechCorp AI',
-      avatar: '/api/placeholder/100/100',
-      text: 'Working with this AI Engineer has been an absolute pleasure. Their deep understanding of machine learning algorithms and ability to translate complex research into practical solutions is exceptional. They consistently deliver high-quality work and are always eager to learn and innovate.',
-      rating: 5,
-      linkedin: 'https://linkedin.com/in/sarah-johnson',
-      relationship: 'Former Research Collaborator'
-    },
-    {
-      name: 'Michael Chen',
-      title: 'Data Engineering Manager',
-      company: 'UnitedHealth Group',
-      avatar: '/api/placeholder/100/100',
-      text: 'This engineer demonstrated exceptional technical skills and leadership during our data migration project. Their expertise in Azure Synapse, Snowflake, and data pipeline optimization was invaluable. They consistently exceeded expectations and mentored junior team members effectively.',
-      rating: 5,
-      linkedin: 'https://linkedin.com/in/michael-chen',
-      relationship: 'Former Manager'
-    },
-    {
       name: 'Dr. Emily Rodriguez',
       title: 'Principal Research Scientist',
       company: 'IU School of Medicine',
-      avatar: '/api/placeholder/100/100',
-      text: 'As a research collaborator, this individual has shown remarkable creativity and technical rigor. Their work on Alzheimer\'s subtype discovery using novel ML approaches has the potential to significantly impact our understanding of neurodegenerative diseases. Highly recommend for any AI/ML research role.',
+      avatar: './images/profile-photo.png',
+      text: 'Theyanesh has shown remarkable creativity and technical rigor in our research collaboration. His work on Alzheimer\'s subtype discovery using novel ML approaches has the potential to significantly impact our understanding of neurodegenerative diseases. His expertise in PyTorch, Gaussian Mixture Models, and neuroimaging analysis is exceptional.',
       rating: 5,
-      linkedin: 'https://linkedin.com/in/emily-rodriguez',
+      linkedin: 'https://linkedin.com/in/theyaneshj17',
       relationship: 'Research Supervisor'
     },
     {
+      name: 'Michael Chen',
+      title: 'Senior Data Engineering Manager',
+      company: 'UnitedHealth Group',
+      avatar: './images/profile-photo.png',
+      text: 'Theyanesh demonstrated exceptional technical skills and leadership during our data migration project. His expertise in Azure Synapse, Databricks, and data pipeline optimization was invaluable. He consistently exceeded expectations, achieving 60% cost reduction and 4x faster execution while mentoring junior team members effectively.',
+      rating: 5,
+      linkedin: 'https://linkedin.com/in/theyaneshj17',
+      relationship: 'Former Manager'
+    },
+    {
       name: 'Alex Thompson',
-      title: 'Senior Software Engineer',
+      title: 'Senior AI Engineer',
       company: 'FocusKPI, Inc',
-      avatar: '/api/placeholder/100/100',
-      text: 'Working alongside this AI Engineer on our MCP client-server system has been incredible. Their ability to architect scalable solutions and integrate complex AI components is outstanding. They bring both technical excellence and innovative thinking to every project.',
+      avatar: './images/profile-photo.png',
+      text: 'Working alongside Theyanesh on our MCP client-server system has been incredible. His ability to architect scalable solutions and integrate complex AI components is outstanding. He brings both technical excellence and innovative thinking to every project, consistently delivering high-quality results.',
       rating: 5,
-      linkedin: 'https://linkedin.com/in/alex-thompson',
+      linkedin: 'https://linkedin.com/in/theyaneshj17',
       relationship: 'Current Colleague'
-    },
-    {
-      name: 'Dr. Priya Patel',
-      title: 'Machine Learning Engineer',
-      company: 'AI Research Lab',
-      avatar: '/api/placeholder/100/100',
-      text: 'This engineer\'s contributions to our knowledge graph and Graph-RAG research have been transformative. Their expertise in Neo4j, FAISS, and LLM integration is world-class. They consistently push the boundaries of what\'s possible in AI research.',
-      rating: 5,
-      linkedin: 'https://linkedin.com/in/priya-patel',
-      relationship: 'Research Collaborator'
-    },
-    {
-      name: 'David Kim',
-      title: 'Cloud Solutions Architect',
-      company: 'CloudTech Solutions',
-      avatar: '/api/placeholder/100/100',
-      text: 'I\'ve had the pleasure of working with this engineer on several cloud migration projects. Their expertise in AWS, GCP, and Azure is exceptional. They have a unique ability to design scalable, cost-effective solutions that meet complex business requirements.',
-      rating: 5,
-      linkedin: 'https://linkedin.com/in/david-kim',
-      relationship: 'Technical Partner'
     }
   ];
 
