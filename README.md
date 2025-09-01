@@ -147,3 +147,10 @@ npm test
 ---
 
 **Note**: The portfolio automatically detects uploaded images and displays them. If images don't appear, check the file paths and ensure images are in the correct `public/images/` folder.
+
+**Important**: For GitHub Pages deployment with environment variables:
+1. Go to your repository Settings → Secrets and variables → Actions
+2. Add repository secrets:
+   - `REACT_APP_CLAUDE_API_KEY`: Your Claude API key
+   - `REACT_APP_CLAUDE_MODEL`: claude-3-haiku-20240307
+3. The GitHub Actions workflow will automatically deploy when you push to the `master` branch
