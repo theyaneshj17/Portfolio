@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-import { MessageCircle, X, Send, Brain, Bot, User } from 'lucide-react';
+import { MessageCircle, X, Send, Brain, Bot, User, Download } from 'lucide-react';
 
 interface Message {
   id: string;
@@ -11,12 +10,22 @@ interface Message {
   isLoading?: boolean;
 }
 
+interface ProfileData {
+  name: string;
+  title: string;
+  experience: string;
+  education: string;
+  skills: string[];
+  achievements: string[];
+  resumeUrl: string;
+}
+
 const Chatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "Hello! I'm your AI assistant. I can help you learn more about AI engineering, discuss projects, or answer questions about machine learning and data science. How can I help you today?",
+      text: "Hello! I'm your AI assistant. I can help you learn more about Theyaneshwaran Jayaprakash, his experience, skills, and provide his resume. How can I help you today?",
       sender: 'bot',
       timestamp: new Date()
     }
@@ -25,6 +34,53 @@ const Chatbot: React.FC = () => {
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // Profile data for the chatbot to reference
+  const profileData: ProfileData = {
+    name: "Theyaneshwaran Jayaprakash",
+    title: "AI Engineer & ML Research Engineer",
+    experience: "4+ years of experience in AI/ML, currently working as AI Engineer Intern at FocusKPI, Inc. and ML Research Assistant at IU School of Medicine",
+    education: "Master's degree in Computer Science from Indiana University, specialized in AI/ML",
+    skills: ["Machine Learning", "Deep Learning", "Natural Language Processing", "Data Engineering", "Python", "TensorFlow", "PyTorch", "AWS", "Azure", "MLOps", "Healthcare Analytics", "Clinical Data Processing"],
+    achievements: ["Published research papers", "Multiple certifications (AZ900, DP100, DP900)", "Awards for innovation and performance", "Healthcare technology expertise"],
+    resumeUrl: "./Theyaneshwaran_Jayaprakash_Resume.pdf"
+  };
+
+  // Enhanced company experience data
+  const companyExperience = {
+    "UnitedHealth Group": {
+      role: "Senior Software Engineer",
+      duration: "2021-2023",
+      responsibilities: [
+        "Led development of healthcare analytics platforms using machine learning",
+        "Implemented NLP solutions for clinical document processing",
+        "Built data pipelines for healthcare data integration",
+        "Collaborated with clinical teams to develop AI-powered diagnostic tools",
+        "Mentored junior developers and conducted code reviews"
+      ],
+      technologies: ["Python", "Machine Learning", "NLP", "Healthcare APIs", "Cloud Computing", "Data Engineering"]
+    },
+    "FocusKPI": {
+      role: "AI Engineer Intern",
+      duration: "2024-Present",
+      responsibilities: [
+        "Developing AI solutions for business intelligence",
+        "Implementing machine learning models for data analysis",
+        "Working on natural language processing projects"
+      ],
+      technologies: ["Python", "ML", "NLP", "Data Science"]
+    },
+    "IU School of Medicine": {
+      role: "ML Research Assistant",
+      duration: "2023-Present",
+      responsibilities: [
+        "Researching advanced machine learning algorithms",
+        "Publishing papers in AI/ML conferences",
+        "Developing innovative solutions for medical data analysis"
+      ],
+      technologies: ["Research", "Advanced ML", "Medical AI", "Academic Publishing"]
+    }
+  };
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -40,22 +96,112 @@ const Chatbot: React.FC = () => {
     }
   }, [isOpen]);
 
-  const generateResponse = async (userMessage: string): Promise<string> => {
-    // Simulate AI response generation
-    await new Promise(resolve => setTimeout(resolve, 1000 + Math.random() * 2000));
+  const callClaudeAPI = async (userMessage: string): Promise<string> => {
+    try {
+      const apiKey = process.env.REACT_APP_CLAUDE_API_KEY;
+      const model = process.env.REACT_APP_CLAUDE_MODEL || 'claude-3-haiku-20240307';
+      
+      if (!apiKey) {
+        throw new Error('Claude API key not found');
+      }
+
+      const systemPrompt = `You are an AI assistant for Theyaneshwaran Jayaprakash's portfolio. You have access to his profile information and should provide helpful, professional responses about his background, experience, and skills. 
+
+Profile Information:
+- Name: ${profileData.name}
+- Title: ${profileData.title}
+- Experience: ${profileData.experience}
+- Education: ${profileData.education}
+- Key Skills: ${profileData.skills.join(', ')}
+- Achievements: ${profileData.achievements.join(', ')}
+
+Company Experience:
+${Object.entries(companyExperience).map(([company, details]) => 
+  `${company} (${details.duration}): ${details.role}
+  - Key responsibilities: ${details.responsibilities.join(', ')}
+  - Technologies: ${details.technologies.join(', ')}`
+).join('\n\n')}
+
+When someone asks about his resume, provide the download link: ${profileData.resumeUrl}
+
+Be professional, informative, and helpful. If someone asks about his experience, skills, or background, provide detailed information. If they want his resume, offer to help them download it.`;
+
+      const response = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': apiKey,
+          'anthropic-version': '2023-06-01'
+        },
+        body: JSON.stringify({
+          model: model,
+          max_tokens: 1000,
+          messages: [
+            {
+              role: 'system',
+              content: systemPrompt
+            },
+            {
+              role: 'user',
+              content: userMessage
+            }
+          ]
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`API call failed: ${response.status}`);
+      }
+
+      const data = await response.json();
+      return data.content[0].text;
+    } catch (error) {
+      console.error('Claude API error:', error);
+      // Fallback to local responses if API fails
+      return generateFallbackResponse(userMessage);
+    }
+  };
+
+  const generateFallbackResponse = (userMessage: string): string => {
+    const lowerMessage = userMessage.toLowerCase();
     
-    const responses = [
-      "That's a great question! In AI engineering, we often use transformer architectures for NLP tasks. The key is understanding attention mechanisms and how they process sequential data.",
-      "Machine learning models require careful hyperparameter tuning. I'd recommend starting with grid search or random search, then moving to more advanced methods like Bayesian optimization.",
-      "For data engineering, Apache Spark is excellent for processing large datasets. The key is understanding RDDs and DataFrame APIs for optimal performance.",
-      "Deep learning projects benefit from proper MLOps practices. Consider using tools like MLflow for experiment tracking and model versioning.",
-      "Computer vision applications often use CNNs with transfer learning. Pre-trained models like ResNet or EfficientNet can give you a great starting point.",
-      "Natural Language Processing has evolved significantly with BERT and GPT models. The key is understanding tokenization and how to fine-tune these models for your specific use case.",
-      "For production ML systems, you'll want to focus on model serving, monitoring, and A/B testing. Kubernetes is great for orchestrating these services.",
-      "Data pipelines should be designed with fault tolerance in mind. Consider using tools like Apache Airflow for workflow orchestration and monitoring."
-    ];
+    // Check for specific company mentions
+    if (lowerMessage.includes('unitedhealth') || lowerMessage.includes('united health')) {
+      const uhg = companyExperience["UnitedHealth Group"];
+      return `${profileData.name} worked at ${Object.keys(companyExperience)[0]} as a ${uhg.role} from ${uhg.duration}. During his time there, he ${uhg.responsibilities[0].toLowerCase()}, ${uhg.responsibilities[1].toLowerCase()}, and ${uhg.responsibilities[2].toLowerCase()}. He worked with technologies like ${uhg.technologies.slice(0, 3).join(', ')} and gained extensive experience in healthcare technology and AI applications.`;
+    }
     
-    return responses[Math.floor(Math.random() * responses.length)];
+    if (lowerMessage.includes('focuskpi') || lowerMessage.includes('focus kpi')) {
+      const focuskpi = companyExperience["FocusKPI"];
+      return `${profileData.name} is currently working as an ${focuskpi.role} at ${Object.keys(companyExperience)[1]} since ${focuskpi.duration}. He's ${focuskpi.responsibilities[0].toLowerCase()} and ${focuskpi.responsibilities[1].toLowerCase()}.`;
+    }
+    
+    if (lowerMessage.includes('iu') || lowerMessage.includes('indiana university') || lowerMessage.includes('school of medicine')) {
+      const iu = companyExperience["IU School of Medicine"];
+      return `${profileData.name} serves as an ${iu.role} at ${Object.keys(companyExperience)[2]} since ${iu.duration}. He's ${iu.responsibilities[0].toLowerCase()}, ${iu.responsibilities[1].toLowerCase()}, and ${iu.responsibilities[2].toLowerCase()}.`;
+    }
+    
+    if (lowerMessage.includes('resume') || lowerMessage.includes('cv')) {
+      return `I'd be happy to provide ${profileData.name}'s resume! You can download it directly from the portfolio or I can provide the link. His resume contains detailed information about his ${profileData.experience}, education, and technical skills.`;
+    }
+    
+    if (lowerMessage.includes('experience') || lowerMessage.includes('work') || lowerMessage.includes('job')) {
+      return `${profileData.name} has ${profileData.experience}. His key roles include: Senior Software Engineer at UnitedHealth Group (2021-2023) where he led healthcare analytics platforms, AI Engineer Intern at FocusKPI (2024-Present), and ML Research Assistant at IU School of Medicine (2023-Present). His expertise spans machine learning, deep learning, and natural language processing.`;
+    }
+    
+    if (lowerMessage.includes('skills') || lowerMessage.includes('technologies')) {
+      return `${profileData.name} is proficient in ${profileData.skills.slice(0, 6).join(', ')}, and many more. His technical expertise covers the full spectrum of AI/ML development, from research to production deployment, with special focus on healthcare analytics and clinical data processing.`;
+    }
+    
+    if (lowerMessage.includes('education') || lowerMessage.includes('degree')) {
+      return `${profileData.name} holds a ${profileData.education} from Indiana University, where he specialized in Artificial Intelligence and Machine Learning. His academic background provides a strong foundation for his research and engineering work.`;
+    }
+    
+    if (lowerMessage.includes('achievements') || lowerMessage.includes('awards')) {
+      return `${profileData.name} has received multiple awards including performance awards, spot awards, and has published research papers. He also holds several professional certifications in cloud computing and data platforms, and has expertise in healthcare technology.`;
+    }
+    
+    return `I'd be happy to tell you more about ${profileData.name}! He's a passionate AI Engineer and ML Research Engineer with expertise in machine learning, deep learning, and data engineering. He has significant experience at UnitedHealth Group developing healthcare AI solutions, and is currently working on cutting-edge ML research. What specific aspect would you like to know more about?`;
   };
 
   const handleSendMessage = async () => {
@@ -73,7 +219,7 @@ const Chatbot: React.FC = () => {
     setIsTyping(true);
 
     try {
-      const response = await generateResponse(userMessage.text);
+      const response = await callClaudeAPI(userMessage.text);
       
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
@@ -86,11 +232,21 @@ const Chatbot: React.FC = () => {
     } catch (error) {
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: "I apologize, but I'm experiencing some technical difficulties. Please try again in a moment.",
+        text: "I apologize, but I'm experiencing some technical difficulties. Let me provide you with information from my local knowledge base.",
         sender: 'bot',
         timestamp: new Date()
       };
       setMessages(prev => [...prev, errorMessage]);
+      
+      // Add fallback response
+      const fallbackResponse = generateFallbackResponse(userMessage.text);
+      const fallbackMessage: Message = {
+        id: (Date.now() + 2).toString(),
+        text: fallbackResponse,
+        sender: 'bot',
+        timestamp: new Date()
+      };
+      setMessages(prev => [...prev, fallbackMessage]);
     } finally {
       setIsTyping(false);
     }
@@ -104,11 +260,20 @@ const Chatbot: React.FC = () => {
   };
 
   const quickQuestions = [
-    "Tell me about AI engineering",
-    "What is machine learning?",
-    "How to start with NLP?",
-    "Best practices for MLOps"
+    "Tell me about his experience",
+    "What did he do at UnitedHealth Group?",
+    "What are his skills?",
+    "Can I get his resume?"
   ];
+
+  const handleResumeDownload = () => {
+    const link = document.createElement('a');
+    link.href = profileData.resumeUrl;
+    link.download = 'Theyaneshwaran_Jayaprakash_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <>
@@ -148,8 +313,8 @@ const Chatbot: React.FC = () => {
                       <Brain className="w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="font-bold">AI Assistant</h3>
-                      <p className="text-sm text-white/80">Powered by Neural Networks</p>
+                      <h3 className="font-bold">Portfolio Assistant</h3>
+                      <p className="text-sm text-white/80">Powered by Claude Haiku</p>
                     </div>
                   </div>
                   <button
@@ -228,11 +393,22 @@ const Chatbot: React.FC = () => {
                 <div ref={messagesEndRef} />
               </div>
 
-              {/* Quick Questions */}
+              {/* Quick Actions */}
               {messages.length === 1 && (
                 <div className="p-4 bg-white dark:bg-dark-800 border-t border-gray-200 dark:border-dark-700">
+                  <div className="flex justify-center mb-3">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={handleResumeDownload}
+                      className="px-4 py-2 bg-gradient-to-r from-primary-600 to-neural-600 text-white text-sm rounded-lg hover:shadow-lg transition-all duration-300 flex items-center space-x-2"
+                    >
+                      <Download className="w-4 h-4" />
+                      <span>Download Resume</span>
+                    </motion.button>
+                  </div>
                   <p className="text-xs text-gray-600 dark:text-gray-400 mb-3 text-center">
-                    Try asking me about:
+                    Quick questions:
                   </p>
                   <div className="flex flex-wrap gap-2 justify-center">
                     {quickQuestions.map((question, index) => (
@@ -259,7 +435,7 @@ const Chatbot: React.FC = () => {
                     value={inputText}
                     onChange={(e) => setInputText(e.target.value)}
                     onKeyPress={handleKeyPress}
-                    placeholder="Ask me anything about AI, ML, or data science..."
+                    placeholder="Ask me about Theyaneshwaran's profile, experience, or skills..."
                     className="flex-1 px-4 py-3 border border-gray-300 dark:border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-dark-700 text-gray-900 dark:text-white text-sm transition-all duration-300"
                   />
                   <motion.button

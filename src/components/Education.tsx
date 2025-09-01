@@ -11,7 +11,7 @@ const Education: React.FC = () => {
       location: 'Indiana, USA',
       period: 'August 2024 - May 2026',
       description: 'Focusing on machine learning, artificial intelligence, and data engineering with research emphasis on neuroimaging and biomedical applications.',
-      gpa: '3.9/4.0',
+      gpa: '4.0/4.0',
       icon: Brain,
       color: 'from-purple-500 to-pink-500',
       courses: [

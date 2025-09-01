@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
-import { Mail, Phone, MapPin, Send, Linkedin, Github, Twitter, MessageCircle, Brain, Download } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Linkedin, Github,  MessageCircle, Brain, Download } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -38,15 +38,15 @@ const Contact: React.FC = () => {
     {
       icon: Mail,
       title: 'Email',
-      value: 'theyanesh.jayaprakash@gmail.com',
-      link: 'mailto:theyanesh.jayaprakash@gmail.com',
+      value: 'theyaneshj17@gmail.com',
+      link: 'mailto:theyaneshj17@gmail.com',
       color: 'from-blue-500 to-cyan-500'
     },
     {
       icon: Phone,
       title: 'Phone',
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567',
+      value: '+1 (812) 822-7804',
+      link: 'tel:+18128227800',
       color: 'from-green-500 to-emerald-500'
     },
     {
@@ -70,12 +70,6 @@ const Contact: React.FC = () => {
       icon: Github,
       url: 'https://github.com/theyaneshj17',
       color: 'from-gray-800 to-gray-900'
-    },
-    {
-      name: 'Twitter',
-      icon: Twitter,
-      url: 'https://twitter.com/theyaneshj17',
-      color: 'from-blue-400 to-blue-500'
     }
   ];
 
@@ -290,49 +284,6 @@ const Contact: React.FC = () => {
                     <social.icon className="w-6 h-6" />
                   </motion.a>
                 ))}
-              </div>
-            </div>
-
-            {/* Resume Download */}
-            <div className="relative p-6 bg-gradient-to-br from-primary-50 to-neural-50 dark:from-primary-900/30 dark:to-neural-900/30 rounded-2xl border border-primary-200/50 dark:border-primary-700/50 overflow-hidden">
-              <div className="absolute inset-0 bg-neural-pattern opacity-5"></div>
-              <div className="relative z-10 text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-neural-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Download className="w-8 h-8 text-white" />
-                </div>
-                <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                  Download Resume
-                </h4>
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-                  Get my detailed resume with all my experience and skills
-                </p>
-                <motion.a
-                  href="./Theyaneshwaran_Jayaprakash_Resume.pdf"
-                  download="Theyaneshwaran_Jayaprakash_Resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-block px-6 py-3 bg-gradient-to-r from-primary-600 to-neural-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                  Download PDF
-                </motion.a>
-              </div>
-            </div>
-
-            {/* Neural Network Visualization */}
-            <div className="relative p-6 bg-gradient-to-br from-primary-50 to-neural-50 dark:from-primary-900/30 dark:to-neural-900/30 rounded-2xl border border-primary-200/50 dark:border-primary-700/50 overflow-hidden">
-              <div className="absolute inset-0 bg-neural-pattern opacity-5"></div>
-              <div className="relative z-10 text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-neural-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Brain className="w-8 h-8 text-white" />
-                </div>
-                <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                  AI Innovation Hub
-                </h4>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  Let's build the future together with cutting-edge AI solutions
-                </p>
               </div>
             </div>
           </motion.div>

@@ -1,6 +1,31 @@
 # AI Engineer Portfolio
 
-A modern, creative portfolio website showcasing AI/ML research and professional experience with an interactive neural network background.
+A modern, creative portfolio website showcasing AI/ML research and professional experience with an interactive neural network background and AI-powered chatbot.
+
+## 🤖 AI Chatbot Features
+
+### Claude Haiku Integration
+- **AI Assistant**: Powered by Claude 3 Haiku model for intelligent responses
+- **Profile Queries**: Answers questions about experience, skills, and background
+- **Resume Download**: Direct access to download resume
+- **Fallback System**: Robust local responses if API is unavailable
+
+### Environment Setup
+1. **Create `.env` file** in the root directory:
+   ```bash
+   REACT_APP_CLAUDE_API_KEY=your_actual_api_key_here
+   REACT_APP_CLAUDE_MODEL=claude-3-haiku-20240307
+   ```
+
+2. **For GitHub Pages**: Set environment variables in your repository secrets
+3. **Local Development**: Use the `.env` file (already in `.gitignore`)
+
+### Chatbot Capabilities
+- **Experience Queries**: Detailed information about work history
+- **Skills Assessment**: Technical skills and technologies
+- **Education Details**: Academic background and specializations
+- **Resume Access**: Direct download functionality
+- **Professional Responses**: HR-friendly, informative answers
 
 ## 🖼️ Image Upload Instructions
 
