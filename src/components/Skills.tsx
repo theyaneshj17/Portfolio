@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Code, Database, Cloud, Brain, Wrench, BarChart3, Sparkles, ArrowRight, Zap } from 'lucide-react';
 
 const Skills: React.FC = () => {
@@ -119,10 +119,6 @@ const Skills: React.FC = () => {
 
   // Function to determine grid layout based on skill lengths
   const getGridLayout = (skills: any[]) => {
-    const shortSkills = skills.filter(s => s.length === 'short');
-    const mediumSkills = skills.filter(s => s.length === 'medium');
-    const longSkills = skills.filter(s => s.length === 'long');
-    
     // Calculate optimal columns based on content
     if (skills.length <= 4) return 'grid-cols-2';
     if (skills.length <= 6) return 'grid-cols-3';
