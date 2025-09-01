@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, ExternalLink, Brain, Database, TrendingUp, GraduationCap, Award, Star, Trophy, X, FileText, Calendar } from 'lucide-react';
+import { MapPin, ExternalLink, Brain, Database, TrendingUp, GraduationCap, Award, Star, Trophy, X, Calendar } from 'lucide-react';
 
 const Experience: React.FC = () => {
   const [selectedPoster, setSelectedPoster] = useState<{ 
@@ -54,9 +54,9 @@ const Experience: React.FC = () => {
     },
     {
       title: 'NLP Research Engineer',
-      company: 'Research Project',
-      location: 'Remote',
-      period: 'January 2025 - Present',
+      company: 'Luddy School of Informatics, Computing, and Engineering',
+      location: 'Indiana, USA',
+      period: 'January 2025 - May 2025',
       description: 'Improving LLM reasoning through knowledge graphs and biomedical ontology enrichment.',
       technologies: ['Neo4j', 'FAISS', 'Cosine Similarity', 'Flask', 'Knowledge Graphs', 'Graph-RAG'],
       icon: TrendingUp,

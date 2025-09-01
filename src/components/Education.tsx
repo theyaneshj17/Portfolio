@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-import { GraduationCap, Award, Calendar, MapPin, ExternalLink, Brain, Database, TrendingUp } from 'lucide-react';
+import { GraduationCap, Award, Calendar, MapPin, ExternalLink, Brain, Database } from 'lucide-react';
 
 const Education: React.FC = () => {
   const education = [

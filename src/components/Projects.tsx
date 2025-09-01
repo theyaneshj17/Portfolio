@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import { ExternalLink, Github, Code, Brain, Database, Globe, Zap } from 'lucide-react';
+import { Github, Code, Brain, Database, Globe, Zap } from 'lucide-react';
 
 const Projects: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
